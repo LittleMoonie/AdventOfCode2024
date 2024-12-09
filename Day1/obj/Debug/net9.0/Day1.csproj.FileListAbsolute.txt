@@ -12,3 +12,4 @@ C:\Users\DarkZ\Documents\Coding Projects\AdventOfCalendar\Day1\obj\Debug\net9.0\
 C:\Users\DarkZ\Documents\Coding Projects\AdventOfCalendar\Day1\obj\Debug\net9.0\Day1.pdb
 C:\Users\DarkZ\Documents\Coding Projects\AdventOfCalendar\Day1\obj\Debug\net9.0\Day1.genruntimeconfig.cache
 C:\Users\DarkZ\Documents\Coding Projects\AdventOfCalendar\Day1\obj\Debug\net9.0\ref\Day1.dll
+C:\Users\DarkZ\Documents\Coding Projects\AdventOfCalendar\Day1\obj\Debug\net9.0\Day1.sourcelink.json

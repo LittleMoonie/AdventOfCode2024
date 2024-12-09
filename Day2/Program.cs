@@ -1,3 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿namespace Day2;
 
-Console.WriteLine("Hello, World!");
+public class Program
+{
+    public static void Main()
+    {
+        Part1.Part1Try();
+        Part2.Part2Try();
+    }
+}

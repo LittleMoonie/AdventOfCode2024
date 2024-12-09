@@ -1,15 +1,17 @@
 ﻿using System;
 using System.IO;
+using System.Collections.Generic;
 
 namespace Day2
 {
-    public class Part1
+    public class Part2
     {
-        public static void Part1Try()
+        public static void Part2Try()
         {
             try
             {
-                Console.WriteLine("Day 2 - Part 1");
+                Console.WriteLine("Day 2 - Part 2");
+
                 // Use relative path for the input file
                 string filePath = @"../../../input2.txt"; // Update path if needed
 
@@ -29,11 +31,11 @@ namespace Day2
                 {
                     if (!string.IsNullOrWhiteSpace(line))
                     {
-                        string[] split = line.Split(new[] { ' ', '\t', '-' }, StringSplitOptions.RemoveEmptyEntries);
+                        string[] split = line.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
                         int[] levels = Array.ConvertAll(split, int.Parse);
-                        
+
                         // Check if the row is safe
-                        if (IsRowSafe(levels))
+                        if (IsRowSafe(levels) || CanBecomeSafe(levels))
                         {
                             safeCount++;
                         }
@@ -58,7 +60,7 @@ namespace Day2
             {
                 int diff = levels[i] - levels[i - 1];
 
-                // Check if the difference is not within the range [1, 3]
+                // Check if the difference is outside the range [1, 3]
                 if (Math.Abs(diff) < 1 || Math.Abs(diff) > 3)
                 {
                     return false;
@@ -78,6 +80,26 @@ namespace Day2
             // The row is safe if it is strictly increasing or strictly decreasing
             return isIncreasing || isDecreasing;
         }
+
+        private static bool CanBecomeSafe(int[] levels)
+        {
+            // Attempt to remove one level at a time
+            for (int i = 0; i < levels.Length; i++)
+            {
+                // Create a new list without the current level
+                var modifiedLevels = new List<int>(levels);
+                modifiedLevels.RemoveAt(i);
+
+                // Check if the modified row is safe
+                if (IsRowSafe(modifiedLevels.ToArray()))
+                {
+                    return true;
+                }
+            }
+
+            // If no single removal makes the row safe, return false
+            return false;
+        }
     }
 }
-// Result: Number of safe rows: 591
+// Result: Number of safe rows: 621
